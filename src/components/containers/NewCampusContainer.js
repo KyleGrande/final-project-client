@@ -12,7 +12,9 @@ class NewCampusContainer extends Component {
     super(props);
     this.state = {
       name: "", 
-      address: "", 
+      address: "",
+      imageUrl: "",
+      description: "",
       redirect: false, 
       redirectId: null
     };
@@ -30,6 +32,8 @@ class NewCampusContainer extends Component {
     let campus = {
       name: this.state.name,
       address: this.state.address,
+      imageUrl: this.state.imageUrl,
+      description: this.state.description,
     };
     
     let newCampus = await this.props.addCampus(campus);
@@ -37,6 +41,8 @@ class NewCampusContainer extends Component {
     this.setState({
       name: "", 
       address: "", 
+      imageUrl: "",
+      description: "",
       redirect: true, 
       redirectId: newCampus.id
     });

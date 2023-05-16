@@ -11,8 +11,9 @@ import { connect } from 'react-redux';
 const AllCampusesView = (props) => {
   // If there is no campus, display a message.
   if (!props.allCampuses.length) {
-    return <div>There are no campuses. Feel free to ADD one!
-            <br/>
+    return <div>
+      <p>We currently lack any campuses in our system. 
+        <br/>Feel free to ADD one!</p>
       <Link to={`/newcampus`}>
         <button>Add New Campus</button>
       </Link>
