@@ -4,7 +4,7 @@ EditStudentContainer.js
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import Header from './Header';
 import EditStudentView from '../views/EditStudentView';
 import { fetchStudentThunk, editStudentThunk } from '../../store/thunks';
 
@@ -73,6 +73,7 @@ class EditStudentContainer extends Component {
     // Display the edit form via the corresponding View component
     return (
       <div>
+        <Header />
         <EditStudentView 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}
