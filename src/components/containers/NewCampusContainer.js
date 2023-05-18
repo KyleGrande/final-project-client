@@ -32,7 +32,7 @@ class NewCampusContainer extends Component {
     let campus = {
       name: this.state.name,
       address: this.state.address,
-      imageUrl: this.state.imageUrl,
+      imageUrl: this.state.imageUrl || undefined, // Check if imageUrl is empty and set it to undefined
       description: this.state.description,
     };
     
