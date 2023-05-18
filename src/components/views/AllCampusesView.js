@@ -6,7 +6,8 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+
 
 const AllCampusesView = (props) => {
   // If there is no campus, display a message.
@@ -25,6 +26,7 @@ const AllCampusesView = (props) => {
   return (
     <div>
       <h1>All Campuses</h1>
+      <div className="all-campus-view">
       {props.allCampuses.map((campus) => (
         <div key={campus.id}>
           <Link to={`/campus/${campus.id}`}>
@@ -38,6 +40,7 @@ const AllCampusesView = (props) => {
           <hr/>
         </div>
       ))}
+      </div>
       <br/>
       <Link to={`/newcampus`}>
         <button>Add New Campus</button>
