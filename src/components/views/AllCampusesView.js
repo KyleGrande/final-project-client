@@ -7,9 +7,50 @@ It constructs a React component to display all campuses.
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 // import { connect } from 'react-redux';
+import { makeStyles } from "@material-ui/core";
 
+// Custom styles for the component
+const useStyles = makeStyles({
+  root: {
+    textAlign: "center",
+    backgroundColor: "#f0f0f0",
+  },
+  allCampusViewer: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
+  allCampusItem: {
+    width: "25%",
+    margin: "10px",
+    padding: "10px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  button: {
+    backgroundColor: "#f0f0f0",
+    color: "#000000",
+    padding: "10px 20px",
+    margin: "10px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    textDecoration: "none",
+    fontSize: "16px",
+    "&:hover": {
+      backgroundColor: "#c5c8d6",
+      color: "#000000",
+    },
+  },
+});
 
 const AllCampusesView = (props) => {
+  const classes = useStyles();
   // If there is no campus, display a message.
   if (!props.allCampuses.length) {
     return <div>
@@ -26,9 +67,9 @@ const AllCampusesView = (props) => {
   return (
     <div>
       <h1>All Campuses</h1>
-      <div className="all-campus-view">
+      <div className={classes.allCampusViewer}>
       {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
+        <div className={classes.allCampusItem} key={campus.id}>
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
           </Link>
