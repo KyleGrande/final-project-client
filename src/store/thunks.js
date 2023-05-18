@@ -20,6 +20,8 @@ export const fetchAllCampusesThunk = () => async (dispatch) => {  // The THUNK
   }
 };
 
+
+
 // Single Campus
 // THUNK CREATOR:
 export const fetchCampusThunk = (id) => async (dispatch) => {  // The THUNK
@@ -132,3 +134,15 @@ export const deleteCampusThunk = campusId => async dispatch => {  // The THUNK
   }
 };
 
+// Edit Campus
+// THUNK CREATOR:
+export const editCampusThunk = (id, campus) => async dispatch => {  // The THUNK
+  try {
+    // API "put" call to update campus (based on "id" and "campus" object's data) from database
+    let res = await axios.put(`/api/campuses/${id}`, campus); 
+    // Update successful so change state with dispatch
+    dispatch(ac.editCampus(res.data));
+  } catch(err) {
+    console.error(err);
+  }
+};
