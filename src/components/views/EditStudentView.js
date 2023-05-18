@@ -49,17 +49,17 @@ const EditStudentView = (props) => {
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
-            <input type="text" name="firstname" value={student.firstname} onChange ={(e) => handleChange(e)} />
+            <input type="text" name="firstname" value={student.firstname} onChange ={(e) => handleChange(e)} required/>
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
-            <input type="text" name="lastname" value={student.lastname} onChange={(e) => handleChange(e)} />
+            <input type="text" name="lastname" value={student.lastname} onChange={(e) => handleChange(e)} required/>
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
-            <input type="email" name="email" value={student.email} onChange={(e) => handleChange(e)} />
+            <input type="email" name="email" value={student.email} onChange={(e) => handleChange(e)} required/>
             <br/>
             <br/>
 

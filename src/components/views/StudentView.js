@@ -15,12 +15,18 @@ const StudentView = (props) => {
       <h1>{student.firstname + " " + student.lastname}</h1>
       <img src={student.imageUrl} alt={`${student.firstname}'s profile`} width={200} />
       <h3>Campus: 
-        <Link to={`/campus/${student.campus.id}`}>
-          {student.campus.name}
-        </Link>
+        {student.campus ? (
+          <Link to={`/campus/${student.campus.id}`}>
+            {student.campus.name}
+          </Link>
+        ) : "Not assigned to a campus"}
       </h3>
       <h3>Email: {student.email}</h3>
-      <h3>GPA: {student.gpa}</h3>
+      <h3>GPA: 
+        {student.gpa ? (
+          student.gpa
+        ) : "Not available"}
+          </h3>
       <Link to={`/student/edit/${student.id}`}>
         <button>Edit</button>
       </Link>
