@@ -56,7 +56,7 @@ const AllStudentsView = (props) => {
       <p>There are no students.
       <br/>Feel free to ADD one!</p>
       <Link to={`newstudent`}>
-        <button>Add New Student</button>
+        <button className={classes.button}>Add New Student</button>
       </Link>
     </div>
     );
@@ -67,7 +67,7 @@ const AllStudentsView = (props) => {
     <div>
       <h1>All Students</h1>
       <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+        <button className={classes.button}>Add New Student</button>
       </Link>
     <div className={classes.allStudentsView}>
       {students.map((student) => {
@@ -77,7 +77,7 @@ const AllStudentsView = (props) => {
               <Link to={`/student/${student.id}`}>
                 <h2>{name}</h2>
               </Link>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
+              <button className={classes.button} onClick={() => deleteStudent(student.id)}>Delete</button>
               <hr/>
             </div>
           );

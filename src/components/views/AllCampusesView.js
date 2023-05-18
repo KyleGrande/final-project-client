@@ -67,6 +67,9 @@ const AllCampusesView = (props) => {
   return (
     <div>
       <h1>All Campuses</h1>
+      <Link to={`/newcampus`}>
+        <button className={classes.button}>Add New Campus</button>
+      </Link>
       <div className={classes.allCampusViewer}>
       {props.allCampuses.map((campus) => (
         <div className={classes.allCampusItem} key={campus.id}>
@@ -77,15 +80,13 @@ const AllCampusesView = (props) => {
           <h4>campus id: {campus.id}</h4>
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <button onClick={() => props.deleteCampus(campus.id)}>Delete Campus</button>
+          <button className={classes.button} onClick={() => props.deleteCampus(campus.id)}>Delete Campus</button>
           <hr/>
         </div>
       ))}
       </div>
       <br/>
-      <Link to={`/newcampus`}>
-        <button>Add New Campus</button>
-      </Link>
+
       <br/><br/>
     </div>
   );
